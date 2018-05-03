@@ -1,101 +1,43 @@
 <template>
   <div id="app">
-    <div id="wrapper" class="container">
-			<section class="navbar main-menu">
-				<div class="navbar-inner main-menu">
-					<a href="/" class="logo pull-left"><img src="./assets/themes/images/logo.png" class="site_logo" alt="" style="margin: 15px auto 5px auto"></a>
+    <div id="wrapper" class="container" >
+			<section class="navbar main-menu" >
+				<div class="navbar-inner main-menu"style="width: 1500px">
+					<a href="/" class="logo pull-left"><img src="./assets/oln logo.png" class="site_logo" alt="" style="margin: 15px auto 5px auto"></a>
 					<nav  class="pull-right" style="margin: 5px auto 0px auto">
-						<h3>Welcome</h3>
+						<h1>Welcome</h1>
 					</nav>
 				</div>
 			</section>
 			<section class="header_text sub">
-			<img class="pageBanner" src="./assets/themes/images/pageBanner.png" alt="New products" >
-				<h4><span>New products</span></h4>
+			<img class="pageBanner" src="https://cdn.shopify.com/s/files/1/0214/5470/files/OLN-SLIDER-1.png?8247432977261988465" alt="New products" >
+				<h4><span>Our products</span></h4>
 			</section>
 			<section class="main-content">
 
 				<div class="row">
 					<div class="span9">
 						<ul class="thumbnails listing-products">
-							<li class="span3">
+							<li class="span3" v-for="product in productFire" :key="product['.key']">
 								<div class="product-box">
 									<span class="sale_tag"></span>
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/9.jpg"></a><br/>
-									<a href="/" class="title">Fusce id molestie massa</a><br/>
-									<a href="/" class="category">Phasellus consequat</a>
-									<p class="price">$341</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/8.jpg"></a><br/>
-									<a href="/" class="title">Praesent tempor sem</a><br/>
-									<a href="/" class="category">Erat gravida</a>
-									<p class="price">$28</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/7.jpg"></a><br/>
-									<a href="/" class="title">Wuam ultrices rutrum</a><br/>
-									<a href="/" class="category">Suspendisse aliquet</a>
-									<p class="price">$341</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<span class="sale_tag"></span>
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/6.jpg"></a><br/>
-									<a href="/" class="title">Praesent tempor sem sodales</a><br/>
-									<a href="/" class="category">Nam imperdiet</a>
-									<p class="price">$49</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/1.jpg"></a><br/>
-									<a href="/" class="title">Fusce id molestie massa</a><br/>
-									<a href="/" class="category">Congue diam congue</a>
-									<p class="price">$35</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/2.jpg"></a><br/>
-									<a href="/" class="title">Tempor sem sodales</a><br/>
-									<a href="/" class="category">Gravida placerat</a>
-									<p class="price">$61</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/3.jpg"></a><br/>
-									<a href="/" class="title">Quam ultrices rutrum</a><br/>
-									<a href="/" class="category">Orci et nisl iaculis</a>
-									<p class="price">$233</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/4.jpg"></a><br/>
-									<a href="/" class="title">Tempor sem sodales</a><br/>
-									<a href="/" class="category">Urna nec lectus mollis</a>
-									<p class="price">$134</p>
-								</div>
-							</li>
-							<li class="span3">
-								<div class="product-box">
-									<a href="/"><img alt="" src="./assets/themes/images/ladies/5.jpg"></a><br/>
-									<a href="/" class="title">Luctus quam ultrices</a><br/>
-									<a href="/" class="category">Suspendisse aliquet</a>
-									<p class="price">$261</p>
+									<a href="/"><img :src="product.imgLink"></a><br/>
+									{{product.productName}}<br/>
+									<p class="price"><h4>{{product.price}} ฿</h4> </p>
+                  {{product.amount}} left <br>
+                  <a class="button is-link is-outlined">Add to cart</a>
 								</div>
 							</li>
 						</ul>
-						<hr>
-						<div class="pagination pagination-small pagination-centered">
+						<hr><div style="text-align: left">
+              ชื่อ <input type="text" value="" v-model="n">
+              ราคา <input type="text" value="" v-model="p">
+              จำนวน <input type="text" value="" v-model="a"><br>
+              ลิ้งก์ <input type="text" value="" v-model="l">
+              <button @click="addProduct">add</button>
+            </div>
+
+						<!-- <div class="pagination pagination-small pagination-centered">
 							<ul>
 								<li><a href="/">Prev</a></li>
 								<li class="active"><a href="/">1</a></li>
@@ -104,7 +46,7 @@
 								<li><a href="/">4</a></li>
 								<li><a href="/">Next</a></li>
 							</ul>
-						</div>
+						</div> -->
 					</div>
 					<div class="span3 col">
 						<div class="block">
@@ -228,7 +170,7 @@
         <button @click="removeTodo(todo.key)">X</button>
       </li>
     </ul> -->
-  </div>
+</div>
 </template>
 <script>
 import firebase from 'firebase'
@@ -254,26 +196,30 @@ export default {
     return {
       text: '',
       productName: '',
-      price:'',
+      price: '',
       addProductButtonState: false,
       addProductPassword: '',
-      passwordForAdd: "123456",
-      onAdd: false
+      passwordForAdd: '123456',
+      onAdd: false,
+      p: '',
+      n: '',
+      l: '',
+      a: ''
     }
   },
   methods: {
     addProduct () {
       productRef.push({
-        productName: this.productName,
-        price: this.price
-
+        productName: this.n,
+        price: this.p,
+        imgLink: this.l
       })
     },
     addTodoFire () {
       todosRef.push({
-        text: "wsdsd",
-        productName: "Coca col",
-        price: "125"
+        text: 'wsdsd',
+        productName: 'Coca col',
+        price: 125
 
       })
     },
@@ -325,35 +271,5 @@ export default {
   color: #2c3e50;
   margin-top: -5px;
 }
-#wrapper,#top-bar{
-	background: #fff;
-	margin: 20px auto auto auto;
-	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-	-webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
-	padding:5px 10px;
-}
-#top-bar{
-	background-color:#fff;
-	padding:10px;
-	margin: 20px auto -22px auto;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-}
-#top-bar .user-menu {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-#top-bar .user-menu li {
-	display: inline-block;
-	*display: inline;
-	zoom: 1;
-	border-right: 1px solid #eee;
-	padding: 5px 12px;
-}
-#top-bar .user-menu li:last-child{
-	border-right:0;
-}
+
 </style>

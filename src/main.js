@@ -9,11 +9,9 @@ Vue.use(VueFire)
 require('./assets/bootstrap/css/bootstrap.css')
 require('./assets/bootstrap/css/bootstrap.min.css')
 require('./assets/bootstrap/css/bootstrap-responsive.css')
-require('./assets/bootstrap/css/bootstrap-responsive.min.css')
-require('./assets/themes/css/bootstrappage.css')
-//require('./assets/themes/css/flexslider.css')
-//require('./assets/themes/css/jquery.fancybox.css')
-//require('./assets/themes/css/main.css')
+//require('./assets/bootstrap/css/bootstrap-responsive.min.css')
+//require('./assets/themes/css/bootstrappage.css')
+
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
