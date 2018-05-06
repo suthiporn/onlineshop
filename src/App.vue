@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container" >
+    <div class="container" style="width: 1500px">
 			<!-- <section class="navbar main-menu" >
 				<div class="navbar-inner main-menu"style="width: 1500px">
 					<a href="/" class="logo pull-left"><img src="./assets/oln logo.png" class="site_logo" alt="" style="margin: 15px auto 5px auto"></a>
@@ -9,15 +9,17 @@
 					</nav>
 				</div>
 			</section> -->
-			<div class="span12" style="margin-top:20px">
-			<img class="pageBanner" src="https://cdn.shopify.com/s/files/1/0214/5470/files/OLN-SLIDER-1.png?8247432977261988465" alt="New products" >
-				<h4><span>Our products</span></h4>
+			<div class="" style="margin-top:20px">
+			<img class="pageBanner" src="https://cdn.shopify.com/s/files/1/0214/5470/files/OLN-SLIDER-1.png?8247432977261988465"  >
 			</div>
-			<section class="main-content">
-				<div class="span12">
-					<div class="span9">
-						<ul class="thumbnails listing-products">
-							<li class="span3" v-for="product in productFire" :key="product['.key']">
+      <div class="" style="margin-top:20px">
+        <h2>Welcome</h2> <br>  
+			<img class="imgEdit" src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.0-9/27459244_2155848374701581_4375726229725598849_n.jpg?_nc_cat=0&oh=4517b2c5d3326fce2338f435696b7ac4&oe=5B8802CE"  >
+			</div>
+				<div class="row" style="margin-top:20px">
+					<div class="col-12" >
+						<ul class="">
+							<li class="col-3" v-for="product in productFire" :key="product['.key']">
 								<div class="product-box">
 									<span class="sale_tag"></span>
 									<a href="/"><img :src="product.imgLink"></a><br/>
@@ -28,13 +30,7 @@
 								</div>
 							</li>
 						</ul>
-						<hr><div  class="span12"style="text-align: left">
-              ชื่อ <input type="text" value="" v-model="n">
-              ราคา <input type="text" value="" v-model="p">
-              จำนวน <input type="text" value="" v-model="a"><br>
-              ลิ้งก์ <input type="text" value="" v-model="l">
-              <button @click="addProduct">add</button>
-            </div>
+						<hr>
 
 						<!-- <div class="pagination pagination-small pagination-centered">
 							<ul>
@@ -47,17 +43,22 @@
 							</ul>
 						</div> -->
 					</div>
-					<div class="span2">
+					<div class="col-2">
 
 						<h2>Best</h2>
 
 					</div>
 				</div>
-			</section>
-			<section id="footer-bar">
+        <div  class="span12"style="text-align: left">
+          ชื่อ <input type="text" value="" v-model="n">
+          ราคา <input type="text" value="" v-model="p">
+          จำนวน <input type="text" value="" v-model="a"><br>
+          ลิ้งก์ <input type="text" value="" v-model="l">
+          <button @click="addProduct">add</button>
+        </div>
 				<div class="span12">
 
-					<div class="copyright">
+					<div class="span12">
 						<p class="logo"><img src="./assets/themes/images/logo.png" class="site_logo" alt=""></p>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. the  Lorem Ipsum has been the industry's standard dummy text ever since the you.</p>
 						<br/>
@@ -69,8 +70,8 @@
 						</span>
 					</div>
 				</div>
-			</section>
-			<section id="copyright">
+
+			<section class="span12">
 				<span>Copyright 2013 bootstrappage template  All right reserved.</span>
 			</section>
 		</div>
@@ -93,7 +94,6 @@
         <button @click="removeTodo(todo.key)">X</button>
       </li>
     </ul> -->
-</div>
 </template>
 <script>
 import firebase from 'firebase'
@@ -194,5 +194,18 @@ export default {
   color: #2c3e50;
   margin-top: -5px;
 }
+ul {
+    margin: 0 auto;
+    text-align: center;
+}
 
+li {
+    display: inline-block;
+    vertical-align: top;
+}
+.imgEdit {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
 </style>
