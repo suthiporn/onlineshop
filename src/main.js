@@ -7,8 +7,8 @@ import VueFire from 'vuefire'
 Vue.use(VueFire)
 
 require('./assets/bootstrap/css/bootstrap.css')
-require('./assets/bootstrap/css/bootstrap.min.css')
-require('./assets/bootstrap/css/bootstrap-responsive.css')
+// require('./assets/bootstrap/css/bootstrap.min.css')
+// require('./assets/bootstrap/css/bootstrap-responsive.css')
 //require('./assets/bootstrap/css/bootstrap-responsive.min.css')
 //require('./assets/themes/css/bootstrappage.css')
 

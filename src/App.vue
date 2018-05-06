@@ -1,21 +1,20 @@
 <template>
   <div id="app">
-    <div id="wrapper" class="container" >
-			<section class="navbar main-menu" >
+    <div class="container" >
+			<!-- <section class="navbar main-menu" >
 				<div class="navbar-inner main-menu"style="width: 1500px">
 					<a href="/" class="logo pull-left"><img src="./assets/oln logo.png" class="site_logo" alt="" style="margin: 15px auto 5px auto"></a>
 					<nav  class="pull-right" style="margin: 5px auto 0px auto">
 						<h1>Welcome</h1>
 					</nav>
 				</div>
-			</section>
-			<section class="header_text sub">
+			</section> -->
+			<div class="span12" style="margin-top:20px">
 			<img class="pageBanner" src="https://cdn.shopify.com/s/files/1/0214/5470/files/OLN-SLIDER-1.png?8247432977261988465" alt="New products" >
 				<h4><span>Our products</span></h4>
-			</section>
+			</div>
 			<section class="main-content">
-
-				<div class="row">
+				<div class="span12">
 					<div class="span9">
 						<ul class="thumbnails listing-products">
 							<li class="span3" v-for="product in productFire" :key="product['.key']">
@@ -29,7 +28,7 @@
 								</div>
 							</li>
 						</ul>
-						<hr><div style="text-align: left">
+						<hr><div  class="span12"style="text-align: left">
               ชื่อ <input type="text" value="" v-model="n">
               ราคา <input type="text" value="" v-model="p">
               จำนวน <input type="text" value="" v-model="a"><br>
@@ -48,91 +47,15 @@
 							</ul>
 						</div> -->
 					</div>
-					<div class="span3 col">
-						<div class="block">
-							<ul class="nav nav-list">
-								<li class="nav-header">SUB CATEGORIES</li>
-								<li><a href="/">Nullam semper elementum</a></li>
-								<li class="active"><a href="/">Phasellus ultricies</a></li>
-								<li><a href="/">Donec laoreet dui</a></li>
-								<li><a href="/">Nullam semper elementum</a></li>
-								<li><a href="/">Phasellus ultricies</a></li>
-								<li><a href="/">Donec laoreet dui</a></li>
-							</ul>
-							<br/>
-							<ul class="nav nav-list below">
-								<li class="nav-header">MANUFACTURES</li>
-								<li><a href="/">Adidas</a></li>
-								<li><a href="/">Nike</a></li>
-								<li><a href="/">Dunlop</a></li>
-								<li><a href="/">Yamaha</a></li>
-							</ul>
-						</div>
-						<div class="block">
-							<h4 class="title">
-								<span class="pull-left"><span class="text">Randomize</span></span>
-								<span class="pull-right">
-									<a class="left button" href="/myCarousel" data-slide="prev"></a><a class="right button" href="/myCarousel" data-slide="next"></a>
-								</span>
-							</h4>
-							<div id="myCarousel" class="carousel slide">
-								<div class="carousel-inner">
-									<div class="active item">
-										<ul class="thumbnails listing-products">
-											<li class="span3">
-												<div class="product-box">
-													<span class="sale_tag"></span>
-													<img alt="" src="./assets/themes/images/ladies/1.jpg"><br/>
-													<a href="/" class="title">Fusce id molestie massa</a><br/>
-													<a href="/" class="category">Suspendisse aliquet</a>
-													<p class="price">$261</p>
-												</div>
-											</li>
-										</ul>
-									</div>
-									<div class="item">
-										<ul class="thumbnails listing-products">
-											<li class="span3">
-												<div class="product-box">
-													<img alt="" src="./assets/themes/images/ladies/2.jpg"><br/>
-													<a href="/" class="title">Tempor sem sodales</a><br/>
-													<a href="/" class="category">Urna nec lectus mollis</a>
-													<p class="price">$134</p>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="block">
-							<h4 class="title"><strong>Best</strong> Seller</h4>
-							<ul class="small-product">
-								<li>
-									<a href="/" title="Praesent tempor sem sodales">
-										<img src="./assets/themes/images/ladies/3.jpg" alt="Praesent tempor sem sodales">
-									</a>
-									<a href="/">Praesent tempor sem</a>
-								</li>
-								<li>
-									<a href="/" title="Luctus quam ultrices rutrum">
-										<img src="./assets/themes/images/ladies/4.jpg" alt="Luctus quam ultrices rutrum">
-									</a>
-									<a href="/">Luctus quam ultrices rutrum</a>
-								</li>
-								<li>
-									<a href="/" title="Fusce id molestie massa">
-										<img src="./assets/themes/images/ladies/5.jpg" alt="Fusce id molestie massa">
-									</a>
-									<a href="/">Fusce id molestie massa</a>
-								</li>
-							</ul>
-						</div>
+					<div class="span2">
+
+						<h2>Best</h2>
+
 					</div>
 				</div>
 			</section>
 			<section id="footer-bar">
-				<div class="row">
+				<div class="span12">
 
 					<div class="copyright">
 						<p class="logo"><img src="./assets/themes/images/logo.png" class="site_logo" alt=""></p>
