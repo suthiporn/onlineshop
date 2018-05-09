@@ -36,17 +36,17 @@
              {{itemCounter}} item(s) <br>
              <div v-for="(item , index) in items">
                {{ countItem(index) }}
-               <ul >
-                 <li style="border: 2px"><img :src="item.imgLink" width="50" height="50"> {{item.productName}} : {{item.price}} ฿ <br><button class="btn btn-danger" @click="removeTodoFire(todo['.key'])">x</button></li>
+               <ul>
+                 <li class="list-group-item" style="width:320px; margin-bottom: 10px; " ><img :src="item.imgLink" width="50" height="50"> {{item.productName}} : {{item.price}} ฿ <br><button class="btn btn-danger" style="margin-bottom: 20px; margin-top: 20px" @click="pickOff(item.productName,item.price,item.amount,item.imgLink,item.key,index)">Bring this out</button></li>
                </ul>
              </div>
 
-            Sum : {{cost}} ฿
+            All of these : <strong>{{cost}} ฿ </strong><br>
             <button type="button" class="btn btn-outline-success" @click="checkOut" >Check out</button>
                 <!-- <button @click="removeTodoFire(todo['.key'])">X</button> -->
           </div>
 				</div>
-        <div class="">
+        <div>
           <h1>Add product</h1> <br>
         </div>
 
@@ -69,8 +69,6 @@
 
 		</div>
 		</div>
-
-
     <!-- firebase -->
     <!-- <ul>
       <li v-for="todo in todosFire" :key="todo['.key']">
@@ -114,11 +112,21 @@ export default {
       a: null,
       itemCounter: 0,
       cost: 0,
-      countCart: 0,
       items: []
     }
   },
   methods: {
+    pickOff (name,price,amount,link,key,index) {
+      db.ref('products/' + key).set({
+        productName: name,
+        price: price,
+        imgLink: link,
+        amount: amount + 1
+      })
+      this.cost-=price
+      this.itemCounter -= 1
+      this.items.splice(index, 1);
+    },
     checkOut () {
       this.items = []
       this.itemCounter = 0
@@ -132,7 +140,7 @@ export default {
         productName: name,
         price: price,
         key: key,
-        amount: amount,
+        amount: amount - 1,
         imgLink: link})
 
         db.ref('products/' + key).set({
@@ -300,4 +308,8 @@ export default {
       font-weight: bold;
       text-shadow: 0px 1px 0px #f2f2f2;
     }
+  .borderlist {
+    list-style-position:inside;
+    border: 1px solid black;
+  }
 </style>
