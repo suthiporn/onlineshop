@@ -14,22 +14,37 @@
 			</div>
       <div class="" style="margin-top:20px">
         <h1>Welcome</h1> <br>
-			<img class="imgEdit" src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.0-9/27459244_2155848374701581_4375726229725598849_n.jpg?_nc_cat=0&oh=4517b2c5d3326fce2338f435696b7ac4&oe=5B8802CE"  >
+			<!-- <img class="imgEdit" src="https://scontent.fbkk21-1.fna.fbcdn.net/v/t1.0-9/27459244_2155848374701581_4375726229725598849_n.jpg?_nc_cat=0&oh=4517b2c5d3326fce2338f435696b7ac4&oe=5B8802CE"  > -->
+
       <hr>
       </div>
-				<div class="row" style="margin-top:20px">
-					<div class="col-12" >
+				<div class="row" style="margin-top:30px">
+					<div class="col-9" >
 						<ul >
 							<li class="col-3" v-for="product in productFire" :key="product['.key']">
-									<a href="/"><img :src="product.imgLink" width="300" height="255"></a><br/>
+									<a ><img :src="product.imgLink" width="300" height="255"></a><br/>
                     {{product.productName}}<br/>
   									<p class="price"><h5>{{product.price}} ฿</h5> </p>
                     {{product.amount}} left <br>
-                    <a class="button is-link is-outlined">Add to cart</a>
+                    <button type="button" class="btn btn-outline-primary" @click="addToCart(product.productName,product.price,product['.key'],product.amount,product.imgLink)">Add to cart</button>
 							</li>
 						</ul>
 						<hr>
 					</div>
+          <div class="col-3" style="text-align: center" >
+            <h2>Your Cart</h2>
+             {{itemCounter}} item(s) <br>
+             <div v-for="(item , index) in items">
+               {{ countItem(index) }}
+               <ul >
+                 <li style="border: 2px"><img :src="item.imgLink" width="50" height="50"> {{item.productName}} : {{item.price}} ฿ <br><button class="btn btn-danger" @click="removeTodoFire(todo['.key'])">x</button></li>
+               </ul>
+             </div>
+
+            Sum : {{cost}} ฿
+            <button type="button" class="btn btn-outline-success" @click="checkOut" >Check out</button>
+                <!-- <button @click="removeTodoFire(todo['.key'])">X</button> -->
+          </div>
 				</div>
         <div class="">
           <h1>Add product</h1> <br>
@@ -96,11 +111,39 @@ export default {
       p: null,
       n: null,
       l: null,
-      a: null
+      a: null,
+      itemCounter: 0,
+      cost: 0,
+      countCart: 0,
+      items: []
     }
   },
   methods: {
+    checkOut () {
+      this.items = []
+      this.itemCounter = 0
+      this.cost = 0
+    },
+    countItem (index) {
+      this.itemCounter = index + 1
+    },
+    addToCart (name,price,key,amount,link) {
+      this.items.push({
+        productName: name,
+        price: price,
+        key: key,
+        amount: amount,
+        imgLink: link})
 
+        db.ref('products/' + key).set({
+          productName: name,
+          price: price,
+          imgLink: link,
+          amount: amount - 1
+        })
+        this.cost += price * 1
+
+    },
     addProduct () {
       // swal(
       //   'Good job!',
